@@ -635,6 +635,8 @@ $('#codebook').querySelectorAll('table').forEach(t => { const w = document.creat
     return s.replace(/\n{3,}/g,'\n\n');
   }
   document.getElementById('dlmd').addEventListener('click', () => {
+    const HOSTED = 'https://tusharchoudhary-hash.github.io/kapivaher-meta-ads-analysis/';
+    if (!/github\.io$/.test(location.hostname) && location.protocol !== 'file:') { document.getElementById('dlnote').innerHTML = `Downloads are blocked inside this viewer. Open the <a href="${HOSTED}" target="_blank" rel="noopener">hosted page</a> and press Download there.`; return; }
     const text = build(), name = 'kapivaher-ad-learnings.md';
     try {
       const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([text], {type:'text/markdown;charset=utf-8'})); a.download = name;
